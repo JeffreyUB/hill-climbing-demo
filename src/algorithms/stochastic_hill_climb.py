@@ -1,5 +1,7 @@
 from src.utils.elevation_api import get_elevation, build_coords, parse_elevation_response, sort_elevation_response
+from src.utils.metrics import format_response, write_output
 from src.algorithms.algorithms import stochastic_hill_climb
+
 def run_stochastic():
     coords = build_coords()
     response = get_elevation(coords)
@@ -11,5 +13,6 @@ def run_stochastic():
     result = stochastic_hill_climb(elevation_data_sorted, elevation_data_response_grid)
     return result
 
-ans = run_stochastic()
-print(f"ans is {ans}")
+steps, elevation, coords, path = run_stochastic()
+format_response(steps, elevation, coords)
+write_output(path)

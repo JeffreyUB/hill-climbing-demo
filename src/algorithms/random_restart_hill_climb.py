@@ -1,4 +1,5 @@
-from src.utils.elevation_api import get_elevation, build_coords, parse_elevation_response, sort_elevation_response
+from src.utils.elevation_api import get_elevation, build_coords, parse_elevation_response
+from src.utils.metrics import format_response, write_output
 from src.algorithms.algorithms import random_restart_hill_climb
 def run_random_restart():
     coords = build_coords()
@@ -11,5 +12,6 @@ def run_random_restart():
     result = random_restart_hill_climb(elevation_data_response_grid)
     return result
 
-ans, highest_elevation = run_random_restart()
-print(f"ans is {ans} and highest elevation is {highest_elevation}")
+steps, elevation, coords, path = run_random_restart()
+format_response(steps, elevation, coords)
+write_output(path)
