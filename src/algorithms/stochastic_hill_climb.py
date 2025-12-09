@@ -15,4 +15,4 @@ def run_stochastic():
 
 steps, elevation, coords, path = run_stochastic()
 format_response(steps, elevation, coords)
-write_output(path)
+write_output(path, algorithm="Stochastic Hill Climbing")

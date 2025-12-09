@@ -21,4 +21,4 @@ def run_simple():
 
 steps, elevation, coords, path = run_simple()
 format_response(steps, elevation, coords)
-write_output(path)
+write_output(path, algorithm="Simple Hill Climb")

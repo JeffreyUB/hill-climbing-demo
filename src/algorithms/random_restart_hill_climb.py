@@ -14,4 +14,4 @@ def run_random_restart():
 
 steps, elevation, coords, path = run_random_restart()
 format_response(steps, elevation, coords)
-write_output(path)
+write_output(path, algorithm="Random Restart Hill Climbing")

@@ -49,7 +49,7 @@ def stochastic_hill_climb(sorted_elevation_data, response_grid):
         chosen_uphill = random.choice(uphills)
         steps += 1
         index = chosen_uphill
-        path.append((index, best_elev, f"Moved to randomly chosen uphill neighbor at coordinates {response_grid[index]}"))
+        path.append((index, response_grid[index][0], f"Moved to randomly chosen uphill neighbor at coordinates {response_grid[index]}"))
 
     return steps, response_grid[index][0], response_grid[index], path
 
