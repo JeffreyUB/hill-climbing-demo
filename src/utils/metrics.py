@@ -17,4 +17,5 @@ def write_output(path, algorithm):
 
     with open(f"{output_directory}/{directory_name}/output_{timestamp}.txt", "w") as file:
         file.write(f"Algorithm being ran is {algorithm}\n\n")
-        file.write("\n".join(str(entry) for entry in path))        
+        file.write("\n".join(str(entry) for entry in path))
+    print(f"\nFull path log saved to: {output_directory}/{directory_name}/output_{timestamp}.txt")
