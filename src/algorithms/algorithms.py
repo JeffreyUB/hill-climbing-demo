@@ -6,6 +6,7 @@ def simple_hill_climb(sorted_elevation_data, response_grid):
     climbing = True
     start = sorted_elevation_data[0]
     index = response_grid.index(start)
+    path.append(f"Max elevation of terrain {sorted_elevation_data[-1][0]}m")
     path.append(
         (
             index,
@@ -13,6 +14,7 @@ def simple_hill_climb(sorted_elevation_data, response_grid):
             f"Starting at coordinates {response_grid[index]}",
         )
     )
+
     steps = 0
     while climbing:
         n_points = int(len(response_grid) ** 0.5)
@@ -44,6 +46,7 @@ def stochastic_hill_climb(sorted_elevation_data, response_grid):
     climbing = True
     start = sorted_elevation_data[0]
     index = response_grid.index(start)
+    path.append(f"Max elevation of terrain {sorted_elevation_data[-1][0]}m")
     path.append(
         (
             index,
@@ -79,12 +82,13 @@ def stochastic_hill_climb(sorted_elevation_data, response_grid):
     return steps, response_grid[index][0], response_grid[index], path
 
 
-def random_restart_hill_climb(response_grid, restarts=5):
+def random_restart_hill_climb(response_grid, sorted_elevation_data, restarts=5):
     steps = 0
     highest_elevation = float("-inf")
     path = []
     best_index = 0
     iteration = 1
+    path.append(f"Max elevation of terrain {sorted_elevation_data[-1][0]}m")
     while restarts > 0:
         climbing = True
         index = random.randint(0, len(response_grid) - 1)
