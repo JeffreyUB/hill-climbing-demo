@@ -64,7 +64,6 @@ def stochastic_hill_climb(sorted_elevation_data, response_grid):
             if 0 <= neighbor < len(response_grid):
                 if response_grid[neighbor][0] > best_elev:
                     uphills.append(neighbor)
-                    # best_elev = response_grid[neighbor][0]
         if not uphills:
             break
         path.append(f"Potential Uphill candidates {uphills}")

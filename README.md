@@ -41,4 +41,3 @@ Generated statistics such as:
 Data Source
 The program fetches terrain elevation data using Open-Elevation API
 This free service provides real-world coordinates that allow algorithms to climb actual terrain.
-
