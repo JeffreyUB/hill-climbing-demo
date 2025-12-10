@@ -11,7 +11,7 @@ def simple_hill_climb(sorted_elevation_data, response_grid):
         (
             index,
             response_grid[index][0],
-            f"Starting at coordinates {response_grid[index]}",
+            f"Starting at coordinates {response_grid[index][2]}, {response_grid[index][1]}",
         )
     )
 
@@ -34,7 +34,7 @@ def simple_hill_climb(sorted_elevation_data, response_grid):
             (
                 index,
                 best_elev,
-                f"Moved to neighbor at coordinates {response_grid[index]}",
+                f"Moved to neighbor with elevation of {response_grid[index][0]} at coordinates {response_grid[index][2]}, {response_grid[index][1]}",
             )
         )
 
@@ -51,7 +51,7 @@ def stochastic_hill_climb(sorted_elevation_data, response_grid):
         (
             index,
             response_grid[index][0],
-            f"Starting at coordinates {response_grid[index]}",
+            f"Starting at elevation of {response_grid[index][0]} at coordinates {response_grid[index][2]}, {response_grid[index][1]}",
         )
     )
     steps = 0
@@ -75,7 +75,7 @@ def stochastic_hill_climb(sorted_elevation_data, response_grid):
             (
                 index,
                 response_grid[index][0],
-                f"Moved to randomly chosen uphill neighbor at coordinates {response_grid[index]}",
+                f"Moved to randomly chosen uphill neighbor at coordinates {response_grid[index][2]}, {response_grid[index][1]} ",
             )
         )
 
@@ -96,7 +96,7 @@ def random_restart_hill_climb(response_grid, sorted_elevation_data, restarts=5):
             (
                 index,
                 response_grid[index][0],
-                f"Starting at randomly chosen coordinates {response_grid[index]}",
+                f"Starting at elevation {response_grid[index][0]} with randomly chosen coordinates {response_grid[index][2]}, {response_grid[index][1]}",
             )
         )
         best_elev = response_grid[index][0]
@@ -123,7 +123,7 @@ def random_restart_hill_climb(response_grid, sorted_elevation_data, restarts=5):
                 (
                     index,
                     best_elev,
-                    f"Moved to best uphill neighbor at coordinates {response_grid[index]}",
+                    f"Moved to best uphill neighbor at elevation of {response_grid[index][0]} at coordinates {response_grid[index][2]}, {response_grid[index][1]}",
                 )
             )
         if best_elev > highest_elevation:
@@ -136,7 +136,7 @@ def random_restart_hill_climb(response_grid, sorted_elevation_data, restarts=5):
             (
                 index,
                 best_elev,
-                f"Unable to move from {response_grid[index]} at elevation {best_elev}. Restarting. {restarts} restarts left",
+                f"Unable to move from coordinates {response_grid[best_index][2]}, {response_grid[best_index][1]}  at elevation {best_elev}. Restarting. {restarts} restarts left",
             )
         )
 
@@ -144,7 +144,7 @@ def random_restart_hill_climb(response_grid, sorted_elevation_data, restarts=5):
         (
             index,
             best_elev,
-            f"Highest elevation was reached at elevation {highest_elevation} at {response_grid[best_index]} during attempt {iteration}.",
+            f"Highest elevation was reached at elevation {highest_elevation} at coordinates {response_grid[best_index][2]}, {response_grid[best_index][1]}  during attempt {iteration}.",
         )
     )
-    return steps, highest_elevation, response_grid[index], path
+    return steps, highest_elevation, response_grid[best_index], path

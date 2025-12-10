@@ -9,7 +9,7 @@ def format_response(
 ):
     print(f"Steps taken during algorithm traversal: {steps}\n\n")
     print(f"Algorithm reached a max elevation of: {elevation}\n\n")
-    print(f"Algorithm ended at coordinates: {coords}\n\n")
+    print(f"Highest Elevation reached at coordinates: {coords[2]}, {coords[1]}\n\n")
 
 
 def write_output(path, algorithm):
