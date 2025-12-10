@@ -1,5 +1,6 @@
 import numpy as np
 import random
+from scipy.interpolate import splprep, splev
 
 # random neighbor selection, w/ certain level of exploration
 def stochastic_hill_climb(Z, start, max_steps=500, downhill_prob=0.2, patience=50):
